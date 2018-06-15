@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Desafio.Models.Produtos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Produto</h2>
+
+<p>
+    @Html.ActionLink("Novo Produto", "Create")
+</p>
+@if (ViewBag.msg != null)
+{
+    <div class="msgWarning alert alert-warning" role="alert" id="alert">
+        This is a success alert—check it out!
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            Descrição
+        </th>
+        <th>
+            Categoria
+        </th>
+        <th>
+            Preço
+        </th>
+        <th>
+            Ativo
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.categoria.nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.preco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ativo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProdutosId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProdutosId })
+        </td>
+    </tr>
+}
+
+</table>
+
+@section Scripts
+{
+<script type="text/javascript">
+    setTimeout(function () {
+        $('#alert').fadeOut('fast');
+    }, 5000);
+</script>
+}
