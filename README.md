@@ -1,4 +1,4 @@
 # Desafio_AspNet
 
-Na pasta Publish encontra-se sistema publicado para execução no IIS
+Na pasta Publish encontra-se o sistema publicado para execução no IIS
 
